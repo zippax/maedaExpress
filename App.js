@@ -4,6 +4,7 @@ import { Scene, Router, Actions, Reducer, ActionConst, Overlay, Tabs, Modal, Dra
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Switch } from 'react-native-paper';
 import Home from './components/Home';
+import Order from './components/Order'
 
 I18nManager.forceRTL(true);
 
@@ -11,8 +12,9 @@ export default class App extends Component {
 render(){
   return (
     <Router>
-      <Stack key="root">
-        <Scene key="home" component={Home} hideNavBar/>
+      <Stack key="root" duration={0}>
+        <Scene key="home" component={Home}  gesturesEnabled={false} hideNavBar={true}/>
+        <Scene key="order" component={Order}  gesturesEnabled={false} hideNavBar={true} initial/>
       </Stack>
     </Router>
   );

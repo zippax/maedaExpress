@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, ScrollView, I18nManager, Image } from 'react-native';
+import {StyleSheet, Text, View, ScrollView, I18nManager, Image, TouchableWithoutFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Switch } from 'react-native-paper';
+import { Router, Stack, Scene, Actions } from 'react-native-router-flux'
 I18nManager.forceRTL(true);
 
 export default class Home extends Component {
@@ -26,6 +27,7 @@ render(){
         </View>
       </View>
       <ScrollView style={styles.scroll}>
+      <TouchableWithoutFeedback onPress={()=> Actions.order({id:'Madad'})}>
         <View style={styles.card}>
           <View style={styles.cardContent}>
             <View style={styles.logoHolder}>
@@ -41,6 +43,7 @@ render(){
             </View>
           </View>
         </View>
+        </TouchableWithoutFeedback>
 
         <View style={styles.card}>
           <View style={styles.cardContent}>
@@ -60,8 +63,8 @@ render(){
       </ScrollView>
       <View style={styles.footer}>
         <View style={styles.footerIcon}>
-          <Icon name="ios-reorder" size={30} color="#9D9B9F" />
-          <Text style={styles.iconText}>الرحلات</Text>
+          <Icon name="ios-reorder" size={30} color="#000" />
+          <Text style={[styles.iconText, {color: '#000'}]}>الرحلات</Text>
         </View>
         <View style={styles.footerIcon}>
           <Icon name="ios-notifications" size={30} color="#9D9B9F" />
@@ -77,8 +80,8 @@ render(){
         </View>
       </View>
       <View style={styles.counter}>
-        <Text style={{ color: '#ccc' }}>23 MIN</Text>
-        <Icon name="ios-clock" size={20} color="#ccc" style={{ marginLeft: 10 }}/>
+        <Text style={{ color: '#ccc' }}>23 TRIP / 24H</Text>
+        <Icon name="ios-stats" size={20} color="#ccc" style={{ marginLeft: 10 }}/>
       </View>
     </View>
   );
@@ -99,7 +102,8 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingTop: 50,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee'
+    borderBottomColor: '#eee',
+    marginBottom: 5
   },
   isOn:{
     flexDirection: 'row',
@@ -127,7 +131,7 @@ const styles = StyleSheet.create({
   card:{
     flex: 1,
     backgroundColor: '#ffffff',
-    marginTop: 10,
+    marginTop: 5,
     padding: 10,
   },
   cardContent:{
