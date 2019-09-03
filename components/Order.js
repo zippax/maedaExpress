@@ -9,7 +9,7 @@ export default class Order extends Component{
         return(
                 <View style={styles.container} >
                     <View style={styles.header}>
-                        <TouchableWithoutFeedback onPress={()=> Actions.home()}>
+                        <TouchableWithoutFeedback onPress={()=> Actions.pop()}>
                             <Icon_f name="arrow-left" size={30} color="#000" />
                         </TouchableWithoutFeedback>
                     </View>
@@ -37,26 +37,30 @@ export default class Order extends Component{
                     </View>
                     <View style={styles.content}>
                         <View style={styles.acceptHolder}>
-                            <Icon_f name="plus-circle" size={30} color="#2c5c09" style={{ marginRight: 10 }}/>
+                            <Icon_f name="plus-circle" size={25} color="#2c5c09" style={{ marginRight: 10 }}/>
                             <Text style={styles.acceptText}>قبول الطلبية</Text>
                         </View>
                     </View>
                     <View style={styles.footer}>
+                        <TouchableWithoutFeedback onPress={()=> Actions.home()}>
+                            <View style={styles.footerIcon}>
+                                <Icon name="ios-reorder" size={30} color="#9D9B9F"/>
+                                <Text style={styles.iconText}>الرحلات</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback onPress={()=> Actions.message()}>
+                            <View style={styles.footerIcon}>
+                                <Icon name="ios-notifications" size={30} color="#9D9B9F" />
+                                <Text style={styles.iconText}>التنبيهات</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
                         <View style={styles.footerIcon}>
-                        <Icon name="ios-reorder" size={30} color="#9D9B9F"/>
-                        <Text style={styles.iconText}>الرحلات</Text>
+                            <Icon name="ios-wallet" size={30} color="#9D9B9F" />
+                            <Text style={styles.iconText}>المحفظة</Text>
                         </View>
                         <View style={styles.footerIcon}>
-                        <Icon name="ios-notifications" size={30} color="#9D9B9F" />
-                        <Text style={styles.iconText}>التنبيهات</Text>
-                        </View>
-                        <View style={styles.footerIcon}>
-                        <Icon name="ios-wallet" size={30} color="#9D9B9F" />
-                        <Text style={styles.iconText}>المحفظة</Text>
-                        </View>
-                        <View style={styles.footerIcon}>
-                        <Icon name="ios-settings" size={30} color="#9D9B9F" />
-                        <Text style={styles.iconText} >الإعدادات</Text>
+                            <Icon name="ios-settings" size={30} color="#9D9B9F" />
+                            <Text style={styles.iconText} >الإعدادات</Text>
                         </View>
                     </View>
                 </View>

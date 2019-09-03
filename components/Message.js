@@ -3,60 +3,53 @@ import {StyleSheet, Text, View, ScrollView, I18nManager, Image, TouchableWithout
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Switch } from 'react-native-paper';
 import { Router, Stack, Scene, Actions } from 'react-native-router-flux'
+import Icon_f from 'react-native-vector-icons/Feather';
 I18nManager.forceRTL(true);
 
-export default class Home extends Component {
-  state = {
-    isSwitchOn: false,
-  };
+export default class Message extends Component {
 render(){
-  const { isSwitchOn } = this.state;
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <View style={styles.isOn}>
-          <Text> هل انت مستعد لإستقبال الطلبات ؟</Text>
-          <View style={styles.switch}>
-            <Switch
-              value={isSwitchOn}
-              onValueChange={() =>
-                { this.setState({ isSwitchOn: !isSwitchOn }); }
-              }
-            />
-          </View>
-        </View>
+        <TouchableWithoutFeedback onPress={()=> Actions.pop()}>
+            <Icon_f name="arrow-left" size={30} color="#000" />
+        </TouchableWithoutFeedback>
       </View>
       <ScrollView style={styles.scroll}>
-      <TouchableWithoutFeedback onPress={()=> Actions.order({id:'Madad'})}>
         <View style={styles.card}>
-          <View style={styles.cardContent}>
-            <View style={styles.logoHolder}>
-              <Image
-                style={{width: 60, height: 60}}
-                source={{uri: 'https://www.maeda.com.sa/i/images/eafd51f43eff2900cde85b56a1c26bc96.png'}}
-              />
+            <View style={styles.cardContent}>
+                <View style={styles.orderInfo}>
+                <Text style={styles.infoTextHeader}>إدارة مائدة</Text>
+                <Text style={styles.infoText}>عرض اليوم : عند اجتيازك ٢٠ رحلة ناجحة، ستم اضافة ٥٠ ريال لرصيد نقاطك</Text>
+                <View style={[styles.light]}>
+                    <Text style={{ color: '#ccc' }}>03 SEP, 2019</Text>
+                </View>
+                </View>
             </View>
-            <View style={styles.orderInfo}>
-              <Text style={styles.infoTextHeader}>مطعم مدد</Text>
-              <Text style={styles.infoText}>التوصيل الى: سيهات - حي السلام، مقابل بلدية سيهات </Text>
-              <View style={[styles.light, { backgroundColor: '#04D5BC' }]}></View>
             </View>
-          </View>
-        </View>
-        </TouchableWithoutFeedback>
-        
-      </ScrollView>
+            <View style={styles.card}>
+            <View style={styles.cardContent}>
+                <View style={styles.orderInfo}>
+                <Text style={styles.infoTextHeader}>إدارة مائدة</Text>
+                <Text style={styles.infoText}>تم شحن رصيدك بقيمة 500 ريال</Text>
+                <View style={[styles.light]}>
+                    <Text style={{ color: '#ccc' }}>01 SEP, 2019</Text>
+                </View>
+                </View>
+            </View>
+            </View>
+        </ScrollView>
       <View style={styles.footer}>
-        <View style={styles.footerIcon}>
-          <Icon name="ios-reorder" size={30} color="#000" />
-          <Text style={[styles.iconText, {color: '#000'}]}>الرحلات</Text>
-        </View>
-        <TouchableWithoutFeedback onPress={()=> Actions.message()}>
-          <View style={styles.footerIcon}>
-            <Icon name="ios-notifications" size={30} color="#9D9B9F" />
-            <Text style={styles.iconText}>التنبيهات</Text>
-          </View>
+        <TouchableWithoutFeedback onPress={()=> Actions.home()}>
+            <View style={styles.footerIcon}>
+            <Icon name="ios-reorder" size={30} color="#9D9B9F" />
+            <Text style={[styles.iconText, {color: '#9D9B9F'}]}>الرحلات</Text>
+            </View>
         </TouchableWithoutFeedback>
+        <View style={styles.footerIcon}>
+          <Icon name="ios-notifications" size={30} color="#000" />
+          <Text style={[styles.iconText, {color: '#000'}]}>التنبيهات</Text>
+        </View>
         <View style={styles.footerIcon}>
          <Icon name="ios-wallet" size={30} color="#9D9B9F" />
          <Text style={styles.iconText}>المحفظة</Text>
@@ -65,10 +58,6 @@ render(){
          <Icon name="ios-settings" size={30} color="#9D9B9F" />
          <Text style={styles.iconText} >الإعدادات</Text>
         </View>
-      </View>
-      <View style={styles.counter}>
-        <Text style={{ color: '#ccc' }}>23 TRIP / 24H</Text>
-        <Icon name="ios-stats" size={20} color="#ccc" style={{ marginLeft: 10 }}/>
       </View>
     </View>
   );
@@ -86,19 +75,11 @@ const styles = StyleSheet.create({
   },
   header:{
     backgroundColor: '#ffffff',
-    padding: 10,
-    paddingTop: 50,
+    padding: 15,
+    paddingTop: 30,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
     marginBottom: 5
-  },
-  isOn:{
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  switch:{
-    flex: 1,
-    alignItems: 'flex-end'
   },
   footer:{
     backgroundColor: '#ffffff',
@@ -119,7 +100,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ffffff',
     marginTop: 5,
-    padding: 10,
+    padding: 20,
+
   },
   cardContent:{
     flexDirection: 'row',
@@ -150,12 +132,12 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   light:{
-    width: 15,
-    height: 15,
-    borderRadius: 10,
+    paddingVertical: 5,
+    paddingHorizontal: 20,
+    borderRadius: 50,
     position: 'absolute',
-    right: 10,
-    top: 5
+    right: -20,
+    top: -5,
   },
   counter:{
     position: 'absolute',

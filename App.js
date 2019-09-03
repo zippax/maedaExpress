@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { Switch } from 'react-native-paper';
 import Home from './components/Home';
 import Order from './components/Order'
+import Message from './components/Message'
 
 I18nManager.forceRTL(true);
 
@@ -13,8 +14,9 @@ render(){
   return (
     <Router>
       <Stack key="root" duration={0}>
-        <Scene key="home" component={Home}  gesturesEnabled={false} hideNavBar={true}/>
-        <Scene key="order" component={Order}  gesturesEnabled={false} hideNavBar={true} initial/>
+        <Scene key="home" component={Home}  gesturesEnabled={false} hideNavBar={true} initial/>
+        <Scene key="order" component={Order}  gesturesEnabled={false} hideNavBar={true} />
+        <Scene key="message" component={Message}  gesturesEnabled={false} hideNavBar={true} />
       </Stack>
     </Router>
   );
