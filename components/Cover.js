@@ -6,30 +6,20 @@ import { Router, Stack, Scene, Actions } from 'react-native-router-flux'
 import Icon_f from 'react-native-vector-icons/Feather';
 I18nManager.forceRTL(true);
 
-export default class Setting extends Component {
+export default class Cover extends Component {
 render(){
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableWithoutFeedback onPress={()=> Actions.pop()}>
-            <Icon_f name="arrow-left" size={30} color="#000" />
+        <View style={{ flex: 1 }}>
+        <Text style={{ textAlign: 'left'}}>عدد المطاعم : 90</Text>
+        </View>
+        <TouchableWithoutFeedback>
+            <Icon_f name="map-pin" size={20} color="#000"/>
         </TouchableWithoutFeedback>
       </View>
       <ScrollView style={styles.scroll}>
-        <View style={styles.card}>
-            <View style={styles.cardContent}>
-                <View style={styles.orderInfo}>
-                    <Text>-</Text>
-                </View>
-            </View>
-        </View>
-        <View style={styles.card}>
-            <View style={styles.cardContent}>
-                <View style={styles.orderInfo}>
-                    <Text>-</Text>
-                </View>
-            </View>
-        </View>
+
       </ScrollView>
       <View style={styles.footer}>
         <TouchableWithoutFeedback onPress={()=> Actions.home()}>
@@ -49,8 +39,8 @@ render(){
         </View>
         </TouchableWithoutFeedback>
         <View style={styles.footerIcon}>
-         <Icon name="ios-settings" size={30} color="#000" />
-         <Text style={[styles.iconText, {color: '#000'}]}>الإعدادات</Text>
+         <Icon name="md-map" size={30} color="#000" />
+         <Text style={[styles.iconText, {color: '#000'}]}>التغطية</Text>
         </View>
       </View>
     </View>
@@ -73,7 +63,10 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
-    marginBottom: 5
+    marginBottom: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end'
   },
   footer:{
     backgroundColor: '#ffffff',
@@ -110,8 +103,9 @@ const styles = StyleSheet.create({
     borderRadius: 5
   },
   orderInfo:{
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
     flex: 1,
+    flexDirection: 'row'
   },
   infoText:{
     textAlign: 'left',

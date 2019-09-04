@@ -54,14 +54,18 @@ export default class Order extends Component{
                                 <Text style={styles.iconText}>التنبيهات</Text>
                             </View>
                         </TouchableWithoutFeedback>
-                        <View style={styles.footerIcon}>
-                            <Icon name="ios-wallet" size={30} color="#9D9B9F" />
-                            <Text style={styles.iconText}>المحفظة</Text>
-                        </View>
-                        <View style={styles.footerIcon}>
-                            <Icon name="ios-settings" size={30} color="#9D9B9F" />
-                            <Text style={styles.iconText} >الإعدادات</Text>
-                        </View>
+                        <TouchableWithoutFeedback onPress={()=> Actions.wallet()}>
+                            <View style={styles.footerIcon}>
+                                <Icon name="ios-wallet" size={30} color="#9D9B9F" />
+                                <Text style={styles.iconText}>المحفظة</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback onPress={()=> Actions.cover()}>
+                            <View style={styles.footerIcon}>
+                            <Icon name="md-map" size={30} color="#9D9B9F" />
+                            <Text style={styles.iconText} >التغطية</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
                     </View>
                 </View>
         )

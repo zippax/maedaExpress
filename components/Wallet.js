@@ -15,8 +15,8 @@ render(){
         <Text style={{ textAlign: 'left'}}>رصيد نقاطك</Text>
         <Text style={{ textAlign: 'left', fontSize: 25, fontWeight: 'bold', color: '#cf0e40' }}>498.00 SR</Text>
         </View>
-        <TouchableWithoutFeedback onPress={()=> Actions.pop()}>
-            <Icon_f name="arrow-left" size={30} color="#000"/>
+        <TouchableWithoutFeedback>
+            <Icon_f name="plus-square" size={30} color="#000"/>
         </TouchableWithoutFeedback>
       </View>
         <ScrollView style={styles.scroll}>
@@ -65,16 +65,16 @@ render(){
         </ScrollView>
         <View style={styles.footer}>
         <TouchableWithoutFeedback onPress={()=> Actions.home()}>
-        <View style={styles.footerIcon}>
-          <Icon name="ios-reorder" size={30} color="#9D9B9F" />
-          <Text style={[styles.iconText, {color: '#9D9B9F'}]}>الرحلات</Text>
-        </View>
+            <View style={styles.footerIcon}>
+              <Icon name="ios-reorder" size={30} color="#9D9B9F" />
+              <Text style={[styles.iconText, {color: '#9D9B9F'}]}>الرحلات</Text>
+            </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={()=> Actions.message()}>
-          <View style={styles.footerIcon}>
-            <Icon name="ios-notifications" size={30} color="#9D9B9F" />
-            <Text style={styles.iconText}>التنبيهات</Text>
-          </View>
+            <View style={styles.footerIcon}>
+              <Icon name="ios-notifications" size={30} color="#9D9B9F" />
+              <Text style={styles.iconText}>التنبيهات</Text>
+            </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={()=> Actions.wallet()}>
             <View style={styles.footerIcon}>
@@ -82,10 +82,10 @@ render(){
                 <Text sstyle={[styles.iconText, {color: '#000'}]}>المحفظة</Text>
             </View>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={()=> Actions.setting()}>
+        <TouchableWithoutFeedback onPress={()=> Actions.cover()}>
         <View style={styles.footerIcon}>
-         <Icon name="ios-settings" size={30} color="#9D9B9F" />
-         <Text style={styles.iconText} >الإعدادات</Text>
+         <Icon name="md-map" size={30} color="#9D9B9F" />
+         <Text style={styles.iconText} >التغطية</Text>
         </View>
         </TouchableWithoutFeedback>
       </View>

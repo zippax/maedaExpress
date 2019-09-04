@@ -26,7 +26,7 @@ render(){
           </View>
         </View>
       </View>
-      <ScrollView style={styles.scroll}>
+      <ScrollView style={styles.scroll} scrollEnabled={false}>
       <TouchableWithoutFeedback onPress={()=> Actions.order({id:'Madad'})}>
         <View style={styles.card}>
           <View style={styles.cardContent}>
@@ -63,10 +63,10 @@ render(){
                 <Text style={styles.iconText}>المحفظة</Text>
             </View>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={()=> Actions.setting()}>
+        <TouchableWithoutFeedback onPress={()=> Actions.cover()}>
         <View style={styles.footerIcon}>
-         <Icon name="ios-settings" size={30} color="#9D9B9F" />
-         <Text style={styles.iconText} >الإعدادات</Text>
+         <Icon name="md-map" size={30} color="#9D9B9F" />
+         <Text style={styles.iconText} >التغطية</Text>
         </View>
         </TouchableWithoutFeedback>
       </View>

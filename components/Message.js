@@ -11,8 +11,8 @@ render(){
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableWithoutFeedback onPress={()=> Actions.pop()}>
-            <Icon_f name="arrow-left" size={30} color="#000" />
+        <TouchableWithoutFeedback>
+            <Icon_f name="volume" size={25} color="#ccc" />
         </TouchableWithoutFeedback>
       </View>
       <ScrollView style={styles.scroll}>
@@ -56,10 +56,12 @@ render(){
          <Text style={styles.iconText}>المحفظة</Text>
         </View>
         </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={()=> Actions.cover()}>
         <View style={styles.footerIcon}>
-         <Icon name="ios-settings" size={30} color="#9D9B9F" />
-         <Text style={styles.iconText} >الإعدادات</Text>
+         <Icon name="md-map" size={30} color="#9D9B9F" />
+         <Text style={styles.iconText} >التغطية</Text>
         </View>
+        </TouchableWithoutFeedback>
       </View>
     </View>
   );
@@ -81,7 +83,10 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
-    marginBottom: 5
+    marginBottom: 5,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center'
   },
   footer:{
     backgroundColor: '#ffffff',
