@@ -57,15 +57,20 @@ render(){
             <Text style={styles.iconText}>التنبيهات</Text>
           </View>
         </TouchableWithoutFeedback>
-        <View style={styles.footerIcon}>
-         <Icon name="ios-wallet" size={30} color="#9D9B9F" />
-         <Text style={styles.iconText}>المحفظة</Text>
-        </View>
+        <TouchableWithoutFeedback onPress={()=> Actions.wallet()}>
+            <View style={styles.footerIcon}>
+                <Icon name="ios-wallet" size={30} color="#9D9B9F" />
+                <Text style={styles.iconText}>المحفظة</Text>
+            </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={()=> Actions.setting()}>
         <View style={styles.footerIcon}>
          <Icon name="ios-settings" size={30} color="#9D9B9F" />
          <Text style={styles.iconText} >الإعدادات</Text>
         </View>
+        </TouchableWithoutFeedback>
       </View>
+      
       <View style={styles.counter}>
         <Text style={{ color: '#ccc' }}>23 TRIP / 24H</Text>
         <Icon name="ios-stats" size={20} color="#ccc" style={{ marginLeft: 10 }}/>

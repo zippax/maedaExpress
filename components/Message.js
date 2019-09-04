@@ -50,10 +50,12 @@ render(){
           <Icon name="ios-notifications" size={30} color="#000" />
           <Text style={[styles.iconText, {color: '#000'}]}>التنبيهات</Text>
         </View>
+        <TouchableWithoutFeedback onPress={()=> Actions.wallet()}>
         <View style={styles.footerIcon}>
          <Icon name="ios-wallet" size={30} color="#9D9B9F" />
          <Text style={styles.iconText}>المحفظة</Text>
         </View>
+        </TouchableWithoutFeedback>
         <View style={styles.footerIcon}>
          <Icon name="ios-settings" size={30} color="#9D9B9F" />
          <Text style={styles.iconText} >الإعدادات</Text>
