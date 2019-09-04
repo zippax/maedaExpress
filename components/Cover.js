@@ -4,23 +4,62 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { Switch } from 'react-native-paper';
 import { Router, Stack, Scene, Actions } from 'react-native-router-flux'
 import Icon_f from 'react-native-vector-icons/Feather';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+
 I18nManager.forceRTL(true);
 
 export default class Cover extends Component {
+  constructor(props) {
+    super(props);
+      this.state = {
+        markers: [{
+          id: 1,
+          title: 'مطعم كبابي العراقي',
+          coordinates: {
+            latitude: 26.4799884,
+            longitude: 50.0414859
+          },
+        },
+        {
+          id: 2,
+          title: 'مشويات الدهليز',
+          coordinates: {
+            latitude: 26.469748,
+            longitude: 50.0452863,
+          },  
+        }]
+      }
+    }
 render(){
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={{ flex: 1 }}>
-        <Text style={{ textAlign: 'left'}}>عدد المطاعم : 90</Text>
+        <Text style={{ textAlign: 'left'}}>عدد المطاعم : 117</Text>
         </View>
         <TouchableWithoutFeedback>
             <Icon_f name="map-pin" size={20} color="#000"/>
         </TouchableWithoutFeedback>
       </View>
-      <ScrollView style={styles.scroll}>
+      <View style={styles.scroll}>
+        <MapView style={styles.scroll}
+          region={{
+            latitude: 26.489599,
+            longitude: 50.039490,
+            latitudeDelta: 0.1,
+            longitudeDelta: 0.1
+            }}
+            >
+            {this.state.markers.map(marker => (
+              <MapView.Marker key={marker.id}
+                coordinate={marker.coordinates}
+                title={marker.title}
+              />
+            ))}
+         </MapView>
 
-      </ScrollView>
+
+      </View>
       <View style={styles.footer}>
         <TouchableWithoutFeedback onPress={()=> Actions.home()}>
             <View style={styles.footerIcon}>
@@ -28,10 +67,12 @@ render(){
             <Text style={[styles.iconText, {color: '#9D9B9F'}]}>الرحلات</Text>
             </View>
         </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={()=> Actions.message()}>
         <View style={styles.footerIcon}>
           <Icon name="ios-notifications" size={30} color="#9D9B9F" />
           <Text style={[styles.iconText, {color: '#9D9B9F'}]}>التنبيهات</Text>
         </View>
+        </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={()=> Actions.wallet()}>
         <View style={styles.footerIcon}>
          <Icon name="ios-wallet" size={30} color="#9D9B9F" />
@@ -48,7 +89,6 @@ render(){
 }
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -63,7 +103,6 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
-    marginBottom: 5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end'
