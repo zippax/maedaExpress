@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Order from './components/Order'
 import Message from './components/Message'
 import Wallet from './components/Wallet'
+import Setting from './components/Setting'
 
 I18nManager.forceRTL(true);
 
@@ -19,6 +20,7 @@ render(){
         <Scene key="order" component={Order}  gesturesEnabled={false} hideNavBar={true} />
         <Scene key="message" component={Message}  gesturesEnabled={false} hideNavBar={true} />
         <Scene key="wallet" component={Wallet}  gesturesEnabled={false} hideNavBar={true} />
+        <Scene key="setting" component={Setting}  gesturesEnabled={false} hideNavBar={true} />
       </Stack>
     </Router>
   );
