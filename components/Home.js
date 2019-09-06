@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {StyleSheet, Text, View, ScrollView, I18nManager, Image, TouchableWithoutFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Icon_f from 'react-native-vector-icons/Feather';
 import { Switch } from 'react-native-paper';
 import { Router, Stack, Scene, Actions } from 'react-native-router-flux'
 I18nManager.forceRTL(true);
@@ -41,7 +42,19 @@ render(){
               <Text style={styles.infoText}>التوصيل الى: سيهات - حي السلام، مقابل بلدية سيهات </Text>
               <View style={[styles.light, { backgroundColor: '#04D5BC' }]}></View>
             </View>
+
           </View>
+          <View style={styles.pricesHolder}>
+                <View style={styles.deliveryPrice}>
+                    <Text>سيهات</Text>
+                </View>
+                <View style={{ justifyContent: 'center', alignItems: 'center', marginHorizontal: 10  }}>
+                <Icon_f name="arrow-left" size={30} color="#000"/>
+                </View>
+                <View style={styles.orderPrice}>
+                    <Text>سيهات</Text>
+                </View>
+            </View>
         </View>
         </TouchableWithoutFeedback>
         
@@ -174,5 +187,30 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 1,
     borderColor: '#eee'
+  },
+  pricesHolder:{
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      paddingHorizontal: 10,
+      paddingBottom: 20,
+      marginTop: 20
+  },
+  deliveryPrice: {
+    backgroundColor: '#eee',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 50,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  orderPrice:{
+    backgroundColor: '#eee',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 50,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });

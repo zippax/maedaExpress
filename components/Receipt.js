@@ -1,16 +1,31 @@
 import React, { Component } from 'react'
-import { View, Text, Image, StyleSheet, TouchableWithoutFeedback, ScrollView} from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableWithoutFeedback, ScrollView, Alert, Linking} from 'react-native'
 import { Router, Stack, Scene, Actions  } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon_f from 'react-native-vector-icons/Feather';
 
-export default class Order extends Component{
+export default class Receipt extends Component{
+    done(){
+        Alert.alert(
+            '',
+            'انت على وشك انهاء الرحلة، هل انت متأكد من ذلك ؟',
+            [
+              {
+                text: 'رجوع',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel',
+              },
+              {text: 'نعم ، لقد اوصلت الطلب بنجاح', onPress: () => console.log('OK Pressed')},
+            ],
+            {cancelable: false},
+          );
+    }
     render(){
         return(
                 <View style={styles.container} >
                     <View style={styles.header}>
-                        <TouchableWithoutFeedback onPress={()=> Actions.pop()}>
-                            <Icon_f name="arrow-left" size={30} color="#000" />
+                        <TouchableWithoutFeedback onPress={this.done}>
+                            <Icon_f name="check-circle" size={30} color="#ccc" />
                         </TouchableWithoutFeedback>
                     </View>
                     <View style={styles.panel}>
@@ -31,17 +46,57 @@ export default class Order extends Component{
                                 <Text>قيمة التوصيل : 12 SR</Text>
                             </View>
                             <View style={styles.orderPrice}>
-                                <Text>قيمة الطلب : 95 SR</Text>
+                                <Text>قيمة الطلب : 123 SR</Text>
                             </View>
                         </View>
                     </View>
                     <View style={styles.content}>
-                        <TouchableWithoutFeedback onPress={()=>Actions.receipt()}>
-                            <View style={styles.acceptHolder}>
-                                <Icon_f name="plus-circle" size={25} color="#2c5c09" style={{ marginRight: 10 }}/>
-                                <Text style={styles.acceptText}>قبول الطلبية</Text>
+                      <ScrollView style={styles.scroll}>
+                        <View style={styles.receipt}>
+                            <View style={styles.receiptItem}>
+                                <View style={styles.qtyHolder}>
+                                    <Text style={styles.qty}>3</Text>
+                                </View>
+                                <Text style={styles.item}>شاورما لحم</Text>
+                                <View style={styles.price}>
+                                    <Text>SR 30.00</Text>
+                                </View>
                             </View>
-                        </TouchableWithoutFeedback>
+                        </View>
+                        <View style={styles.receipt}>
+                            <View style={styles.receiptItem}>
+                                <View style={styles.qtyHolder}>
+                                    <Text style={styles.qty}>3</Text>
+                                </View>
+                                <Text style={styles.item}>شاورما دجاج</Text>
+                                <View style={styles.price}>
+                                    <Text>SR 30.00</Text>
+                                </View>
+                            </View>
+                        </View>
+                        <View style={styles.receipt}>
+                            <View style={styles.receiptItem}>
+                                <View style={styles.qtyHolder}>
+                                    <Text style={styles.qty}>2</Text>
+                                </View>
+                                <Text style={styles.item}>بروستد دجاج</Text>
+                                <View style={styles.price}>
+                                    <Text>SR  45.00</Text>
+                                </View>
+                            </View>
+                        </View>
+                        <View style={styles.receipt}>
+                            <View style={styles.receiptItem}>
+                                <View style={styles.qtyHolder}>
+                                    <Text style={styles.qty}>6</Text>
+                                </View>
+                                <Text style={styles.item}>كوكا كولا</Text>
+                                <View style={styles.price}>
+                                    <Text>SR 18.00</Text>
+                                </View>
+                            </View>
+                        </View>
+                      </ScrollView>
                     </View>
                     <View style={styles.footer}>
                         <TouchableWithoutFeedback onPress={()=> Actions.home()}>
@@ -69,6 +124,12 @@ export default class Order extends Component{
                             </View>
                         </TouchableWithoutFeedback>
                     </View>
+                    <TouchableWithoutFeedback onPress={()=>{Linking.openURL('tel:0545524751');}}>
+                        <View style={styles.counter} >
+                            <Text style={{ color: 'green' }}>اتصل بالزبون</Text>
+                            <Icon name="ios-call" size={20} color="green" style={{ marginLeft: 10 }}/>
+                        </View>
+                    </TouchableWithoutFeedback>
                 </View>
         )
     }
@@ -165,5 +226,50 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
-      }
+      },
+      scroll:{
+          flex: 1
+      },
+      receipt:{
+          backgroundColor: '#fff',
+          padding: 15,
+          justifyContent: 'center',
+          alignItems: 'flex-start',
+          borderBottomWidth: 1,
+          borderBottomColor: '#eee'
+      },
+      receiptItem:{
+          flexDirection: 'row',
+          alignItems: 'center'
+      },
+      qtyHolder:{
+        marginRight: 10,
+        width: 30,
+        height: 30,
+        backgroundColor: '#eee',
+        borderRadius: 50,
+        justifyContent: 'center'
+      },
+      qty:{
+        textAlign: 'center'
+      },
+      item:{
+
+      },
+      price:{
+          flex: 1
+      },
+      counter:{
+        position: 'absolute',
+        flexDirection: 'row',
+        alignItems: 'center',
+        bottom: 100,
+        backgroundColor: '#fff',
+        alignSelf: 'center',
+        paddingHorizontal: 20,
+        paddingVertical: 5,
+        borderRadius: 50,
+        borderWidth: 1,
+        borderColor: 'green'
+      },
 })
