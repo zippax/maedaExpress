@@ -19,8 +19,8 @@ render(){
         <View style={styles.card}>
             <View style={styles.cardContent}>
                 <View style={styles.orderInfo}>
-                <Text style={styles.infoTextHeader}>إدارة مائدة</Text>
-                <Text style={styles.infoText}>عرض اليوم : عند اجتيازك ٢٠ رحلة ناجحة، ستم اضافة ٥٠ ريال لرصيد نقاطك</Text>
+                <Text style={styles.infoTextHeader}>Admin</Text>
+                <Text style={styles.infoText}>Offer: if you rich 25 order you're going to win $100</Text>
                 <View style={[styles.light]}>
                     <Text style={{ color: '#ccc' }}>03 SEP, 2019</Text>
                 </View>
@@ -30,8 +30,8 @@ render(){
             <View style={styles.card}>
             <View style={styles.cardContent}>
                 <View style={styles.orderInfo}>
-                <Text style={styles.infoTextHeader}>إدارة مائدة</Text>
-                <Text style={styles.infoText}>تم شحن رصيدك بقيمة 500 ريال</Text>
+                <Text style={styles.infoTextHeader}>Admin</Text>
+                <Text style={styles.infoText}>$500 added to your balance</Text>
                 <View style={[styles.light]}>
                     <Text style={{ color: '#ccc' }}>01 SEP, 2019</Text>
                 </View>
@@ -43,23 +43,23 @@ render(){
         <TouchableWithoutFeedback onPress={()=> Actions.home()}>
             <View style={styles.footerIcon}>
             <Icon name="ios-reorder" size={30} color="#9D9B9F" />
-            <Text style={[styles.iconText, {color: '#9D9B9F'}]}>الرحلات</Text>
+            <Text style={[styles.iconText, {color: '#9D9B9F'}]}>Trips</Text>
             </View>
         </TouchableWithoutFeedback>
         <View style={styles.footerIcon}>
           <Icon name="ios-notifications" size={30} color="#000" />
-          <Text style={[styles.iconText, {color: '#000'}]}>التنبيهات</Text>
+          <Text style={[styles.iconText, {color: '#000'}]}>Notifications</Text>
         </View>
         <TouchableWithoutFeedback onPress={()=> Actions.wallet()}>
         <View style={styles.footerIcon}>
          <Icon name="ios-wallet" size={30} color="#9D9B9F" />
-         <Text style={styles.iconText}>المحفظة</Text>
+         <Text style={styles.iconText}>Wallet</Text>
         </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={()=> Actions.cover()}>
         <View style={styles.footerIcon}>
          <Icon name="md-map" size={30} color="#9D9B9F" />
-         <Text style={styles.iconText} >التغطية</Text>
+         <Text style={styles.iconText} >Map</Text>
         </View>
         </TouchableWithoutFeedback>
       </View>
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   header:{
     backgroundColor: '#ffffff',
     padding: 15,
-    paddingTop: 30,
+    paddingTop: 60,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
     marginBottom: 5,

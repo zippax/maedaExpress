@@ -12,7 +12,7 @@ render(){
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={{ flex: 1 }}>
-        <Text style={{ textAlign: 'left'}}>رصيد نقاطك</Text>
+        <Text style={{ textAlign: 'left'}}>Yor Balance</Text>
         <Text style={{ textAlign: 'left', fontSize: 25, fontWeight: 'bold', color: '#cf0e40' }}>498.00 SR</Text>
         </View>
         <TouchableWithoutFeedback>
@@ -26,8 +26,8 @@ render(){
                         <Icon_f name="arrow-up-left" size={30} color="#cf0e40" />
                     </View>
                     <View style={styles.orderInfo}>
-                    <Text style={styles.infoTextHeader}>قيمة مشوار</Text>
-                    <Text style={styles.infoText}>القيمة: 1.00 SR | الساعة: 12:03 PM</Text>
+                    <Text style={styles.infoTextHeader}>Spend</Text>
+                    <Text style={styles.infoText}>Cost: $1.00 | Time: 12:03 PM</Text>
                     <View style={[styles.light]}>
                         <Text style={{ color: '#ccc' }}>04 SEP, 2019</Text>
                     </View>
@@ -40,8 +40,8 @@ render(){
                         <Icon_f name="arrow-up-left" size={30} color="#cf0e40" />
                     </View>
                     <View style={styles.orderInfo}>
-                    <Text style={styles.infoTextHeader}>قيمة مشوار</Text>
-                    <Text style={styles.infoText}>القيمة: 1.00 SR | الساعة: 12:05 PM</Text>
+                    <Text style={styles.infoTextHeader}>Spend</Text>
+                    <Text style={styles.infoText}>Cost: $1.00 | Time: 12:05 PM</Text>
                     <View style={[styles.light]}>
                         <Text style={{ color: '#ccc' }}>04 SEP, 2019</Text>
                     </View>
@@ -54,8 +54,8 @@ render(){
                         <Icon_f name="arrow-down-left" size={30} color="#4ad25d" />
                     </View>
                     <View style={styles.orderInfo}>
-                    <Text style={styles.infoTextHeader}>شحن رصيد</Text>
-                    <Text style={styles.infoText}>القيمة: 500 SR | الساعة: 8:15 AM</Text>
+                    <Text style={styles.infoTextHeader}>Charge Wallet</Text>
+                    <Text style={styles.infoText}>Cost: $500 | Time: 8:15 AM</Text>
                     <View style={[styles.light]}>
                         <Text style={{ color: '#ccc' }}>03 SEP, 2019</Text>
                     </View>
@@ -67,25 +67,25 @@ render(){
         <TouchableWithoutFeedback onPress={()=> Actions.home()}>
             <View style={styles.footerIcon}>
               <Icon name="ios-reorder" size={30} color="#9D9B9F" />
-              <Text style={[styles.iconText, {color: '#9D9B9F'}]}>الرحلات</Text>
+              <Text style={[styles.iconText, {color: '#9D9B9F'}]}>Trips</Text>
             </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={()=> Actions.message()}>
             <View style={styles.footerIcon}>
               <Icon name="ios-notifications" size={30} color="#9D9B9F" />
-              <Text style={styles.iconText}>التنبيهات</Text>
+              <Text style={styles.iconText}>Notifications</Text>
             </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={()=> Actions.wallet()}>
             <View style={styles.footerIcon}>
                 <Icon name="ios-wallet" size={30} color="#000" />
-                <Text sstyle={[styles.iconText, {color: '#000'}]}>المحفظة</Text>
+                <Text sstyle={[styles.iconText, {color: '#000'}]}>Wallet</Text>
             </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={()=> Actions.cover()}>
         <View style={styles.footerIcon}>
          <Icon name="md-map" size={30} color="#9D9B9F" />
-         <Text style={styles.iconText} >التغطية</Text>
+         <Text style={styles.iconText} >Map</Text>
         </View>
         </TouchableWithoutFeedback>
       </View>
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   header:{
     backgroundColor: '#ffffff',
     padding: 15,
-    paddingTop: 30,
+    paddingTop: 60,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
     marginBottom: 5,

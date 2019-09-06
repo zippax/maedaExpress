@@ -4,6 +4,8 @@ import { Router, Stack, Scene, Actions  } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon_f from 'react-native-vector-icons/Feather';
 
+
+
 export default class Order extends Component{
     render(){
         return(
@@ -18,20 +20,20 @@ export default class Order extends Component{
                             <View style={styles.logoHolder}>
                                 <Image
                                     style={{width: 60, height: 60}}
-                                    source={{uri: 'https://www.maeda.com.sa/i/images/eafd51f43eff2900cde85b56a1c26bc96.png'}}
+                                    source={{uri: 'https://logonoid.com/images/chipotle-logo.png'}}
                                 />
                             </View>
                             <View style={styles.info}>
-                                <Text style={styles.headerText}>مطعم مدد</Text>
-                                <Text style={styles.infoText}>التوصيل الى : سيهات - حي السلام، مقابل بلدية سيهات</Text>
+                                <Text style={styles.headerText}>Chipotle</Text>
+                                <Text style={styles.infoText}>Deliver to: Pittsburgh, 7 Allegeny Center</Text>
                             </View>
                         </View>
                         <View style={styles.pricesHolder}>
                             <View style={styles.deliveryPrice}>
-                                <Text>قيمة التوصيل : 12 SR</Text>
+                                <Text>Delivery Cost: $12</Text>
                             </View>
                             <View style={styles.orderPrice}>
-                                <Text>قيمة الطلب : 95 SR</Text>
+                                <Text>Order Cost: $123</Text>
                             </View>
                         </View>
                     </View>
@@ -39,7 +41,7 @@ export default class Order extends Component{
                         <TouchableWithoutFeedback onPress={()=>Actions.receipt()}>
                             <View style={styles.acceptHolder}>
                                 <Icon_f name="plus-circle" size={25} color="#2c5c09" style={{ marginRight: 10 }}/>
-                                <Text style={styles.acceptText}>قبول الطلبية</Text>
+                                <Text style={styles.acceptText}>Accept the Order</Text>
                             </View>
                         </TouchableWithoutFeedback>
                     </View>
@@ -47,25 +49,25 @@ export default class Order extends Component{
                         <TouchableWithoutFeedback onPress={()=> Actions.home()}>
                             <View style={styles.footerIcon}>
                                 <Icon name="ios-reorder" size={30} color="#9D9B9F"/>
-                                <Text style={styles.iconText}>الرحلات</Text>
+                                <Text style={styles.iconText}>Trips</Text>
                             </View>
                         </TouchableWithoutFeedback>
                         <TouchableWithoutFeedback onPress={()=> Actions.message()}>
                             <View style={styles.footerIcon}>
                                 <Icon name="ios-notifications" size={30} color="#9D9B9F" />
-                                <Text style={styles.iconText}>التنبيهات</Text>
+                                <Text style={styles.iconText}>Notifications</Text>
                             </View>
                         </TouchableWithoutFeedback>
                         <TouchableWithoutFeedback onPress={()=> Actions.wallet()}>
                             <View style={styles.footerIcon}>
                                 <Icon name="ios-wallet" size={30} color="#9D9B9F" />
-                                <Text style={styles.iconText}>المحفظة</Text>
+                                <Text style={styles.iconText}>Wallet</Text>
                             </View>
                         </TouchableWithoutFeedback>
                         <TouchableWithoutFeedback onPress={()=> Actions.cover()}>
                             <View style={styles.footerIcon}>
                             <Icon name="md-map" size={30} color="#9D9B9F" />
-                            <Text style={styles.iconText} >التغطية</Text>
+                            <Text style={styles.iconText} >Map</Text>
                             </View>
                         </TouchableWithoutFeedback>
                     </View>
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
     },
     header:{
         paddingRight: 10,
-        paddingTop: 30,
+        paddingTop: 60,
         justifyContent: 'center',
         backgroundColor: '#fff'
     },

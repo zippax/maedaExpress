@@ -4,59 +4,16 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { Switch } from 'react-native-paper';
 import { Router, Stack, Scene, Actions } from 'react-native-router-flux'
 import Icon_f from 'react-native-vector-icons/Feather';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 I18nManager.forceRTL(true);
 
 export default class Cover extends Component {
-  constructor(props) {
-    super(props);
-      this.state = {
-        markers: [{
-          id: 1,
-          title: 'مطعم كبابي العراقي',
-          coordinates: {
-            latitude: 26.4799884,
-            longitude: 50.0414859
-          },
-        },
-        {
-          id: 2,
-          title: 'مشويات الدهليز',
-          coordinates: {
-            latitude: 26.469748,
-            longitude: 50.0452863,
-          },  
-        }]
-      }
-    }
 render(){
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={{ flex: 1 }}>
-        <Text style={{ textAlign: 'left'}}>عدد المطاعم : 117</Text>
-        </View>
-        <TouchableWithoutFeedback>
-            <Icon_f name="map-pin" size={20} color="#000"/>
-        </TouchableWithoutFeedback>
-      </View>
+      
       <View style={styles.scroll}>
-        <MapView style={styles.scroll}
-          region={{
-            latitude: 26.489599,
-            longitude: 50.039490,
-            latitudeDelta: 0.1,
-            longitudeDelta: 0.1
-            }}
-            >
-            {this.state.markers.map(marker => (
-              <MapView.Marker key={marker.id}
-                coordinate={marker.coordinates}
-                title={marker.title}
-              />
-            ))}
-         </MapView>
+
 
 
       </View>
@@ -64,24 +21,24 @@ render(){
         <TouchableWithoutFeedback onPress={()=> Actions.home()}>
             <View style={styles.footerIcon}>
             <Icon name="ios-reorder" size={30} color="#9D9B9F" />
-            <Text style={[styles.iconText, {color: '#9D9B9F'}]}>الرحلات</Text>
+            <Text style={[styles.iconText, {color: '#9D9B9F'}]}>Trips</Text>
             </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={()=> Actions.message()}>
         <View style={styles.footerIcon}>
           <Icon name="ios-notifications" size={30} color="#9D9B9F" />
-          <Text style={[styles.iconText, {color: '#9D9B9F'}]}>التنبيهات</Text>
+          <Text style={[styles.iconText, {color: '#9D9B9F'}]}>Notifications</Text>
         </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={()=> Actions.wallet()}>
         <View style={styles.footerIcon}>
          <Icon name="ios-wallet" size={30} color="#9D9B9F" />
-         <Text style={styles.iconText}>المحفظة</Text>
+         <Text style={styles.iconText}>Wallet</Text>
         </View>
         </TouchableWithoutFeedback>
         <View style={styles.footerIcon}>
          <Icon name="md-map" size={30} color="#000" />
-         <Text style={[styles.iconText, {color: '#000'}]}>التغطية</Text>
+         <Text style={[styles.iconText, {color: '#000'}]}>Map</Text>
         </View>
       </View>
     </View>

@@ -16,7 +16,7 @@ render(){
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.isOn}>
-          <Text> هل انت مستعد لإستقبال الطلبات ؟</Text>
+          <Text>Are you ready to receive the orders ?</Text>
           <View style={styles.switch}>
             <Switch
               value={isSwitchOn}
@@ -34,25 +34,25 @@ render(){
             <View style={styles.logoHolder}>
               <Image
                 style={{width: 60, height: 60}}
-                source={{uri: 'https://www.maeda.com.sa/i/images/eafd51f43eff2900cde85b56a1c26bc96.png'}}
+                source={{uri: 'https://logonoid.com/images/chipotle-logo.png'}}
               />
             </View>
             <View style={styles.orderInfo}>
-              <Text style={styles.infoTextHeader}>مطعم مدد</Text>
-              <Text style={styles.infoText}>التوصيل الى: سيهات - حي السلام، مقابل بلدية سيهات </Text>
+              <Text style={styles.infoTextHeader}>Chipotle</Text>
+              <Text style={styles.infoText}>Deliver to: Pittsburgh, 7 Allegeny Center</Text>
               <View style={[styles.light, { backgroundColor: '#04D5BC' }]}></View>
             </View>
 
           </View>
           <View style={styles.pricesHolder}>
                 <View style={styles.deliveryPrice}>
-                    <Text>سيهات</Text>
+                    <Text>Pitsburgh</Text>
                 </View>
                 <View style={{ justifyContent: 'center', alignItems: 'center', marginHorizontal: 10  }}>
                 <Icon_f name="arrow-left" size={30} color="#000"/>
                 </View>
                 <View style={styles.orderPrice}>
-                    <Text>سيهات</Text>
+                    <Text>Pitsburgh</Text>
                 </View>
             </View>
         </View>
@@ -62,24 +62,24 @@ render(){
       <View style={styles.footer}>
         <View style={styles.footerIcon}>
           <Icon name="ios-reorder" size={30} color="#000" />
-          <Text style={[styles.iconText, {color: '#000'}]}>الرحلات</Text>
+          <Text style={[styles.iconText, {color: '#000'}]}>Trips</Text>
         </View>
         <TouchableWithoutFeedback onPress={()=> Actions.message()}>
           <View style={styles.footerIcon}>
             <Icon name="ios-notifications" size={30} color="#9D9B9F" />
-            <Text style={styles.iconText}>التنبيهات</Text>
+            <Text style={styles.iconText}>Notifications</Text>
           </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={()=> Actions.wallet()}>
             <View style={styles.footerIcon}>
                 <Icon name="ios-wallet" size={30} color="#9D9B9F" />
-                <Text style={styles.iconText}>المحفظة</Text>
+                <Text style={styles.iconText}>Wallet</Text>
             </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={()=> Actions.cover()}>
         <View style={styles.footerIcon}>
          <Icon name="md-map" size={30} color="#9D9B9F" />
-         <Text style={styles.iconText} >التغطية</Text>
+         <Text style={styles.iconText} >Map</Text>
         </View>
         </TouchableWithoutFeedback>
       </View>
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   header:{
     backgroundColor: '#ffffff',
     padding: 10,
-    paddingTop: 50,
+    paddingTop: 60,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
     marginBottom: 5
