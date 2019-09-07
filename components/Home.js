@@ -4,12 +4,43 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Icon_f from 'react-native-vector-icons/Feather';
 import { Switch } from 'react-native-paper';
 import { Router, Stack, Scene, Actions } from 'react-native-router-flux'
+import firebase from 'firebase'
+
+
+
+
+var firebaseConfig = {
+  apiKey: "AIzaSyCAXC6lCQpnHYi34W2mu9R5ikYZ-UyHoLs",
+  authDomain: "maeda-37ffe.firebaseapp.com",
+  databaseURL: "https://maeda-37ffe.firebaseio.com",
+  projectId: "maeda-37ffe",
+  storageBucket: "",
+  messagingSenderId: "841397371942",
+  appId: "1:841397371942:web:0f8057a4c62324612b92e7"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+
 I18nManager.forceRTL(true);
+
+
+
 
 export default class Home extends Component {
   state = {
     isSwitchOn: false,
+    items: []
   };
+
+
+componentDidMount(){
+  firebase.database().ref(1).on('value', data=> {
+    this.setState({
+      items: data.val()
+    })
+  })
+}
 render(){
   const { isSwitchOn } = this.state;
   return (
@@ -28,6 +59,7 @@ render(){
         </View>
       </View>
       <ScrollView style={styles.scroll} scrollEnabled={false}>
+        
       <TouchableWithoutFeedback onPress={()=> Actions.order({id:'Madad'})}>
         <View style={styles.card}>
           <View style={styles.cardContent}>
@@ -38,8 +70,8 @@ render(){
               />
             </View>
             <View style={styles.orderInfo}>
-              <Text style={styles.infoTextHeader}>Chipotle</Text>
-              <Text style={styles.infoText}>Deliver to: Pittsburgh, 7 Allegeny Center</Text>
+              <Text style={styles.infoTextHeader}>{this.state.items.name}</Text>
+              <Text style={styles.infoText}>{this.state.items.address}</Text>
               <View style={[styles.light, { backgroundColor: '#04D5BC' }]}></View>
             </View>
 
@@ -57,7 +89,6 @@ render(){
             </View>
         </View>
         </TouchableWithoutFeedback>
-        
       </ScrollView>
       <View style={styles.footer}>
         <View style={styles.footerIcon}>
@@ -149,7 +180,6 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems: 'center',
     marginRight: 15,
-    backgroundColor: '#f2f2f2',
     borderRadius: 5
   },
   orderInfo:{
